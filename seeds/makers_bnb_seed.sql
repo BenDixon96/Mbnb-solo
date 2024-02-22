@@ -43,7 +43,7 @@ INSERT INTO users (user_name, user_email, user_password) VALUES ('Bob Johnson', 
 INSERT INTO users (user_name, user_email, user_password) VALUES ('John Doe', 'johndoe@email.com', 'password123');
 INSERT INTO users (user_name, user_email, user_password) VALUES   ('Alice Smith', 'alicesmith@email.com', 'securepwd');
 
-INSERT INTO spaces (space_name, space_description, price_per_night, available_from, available_to, user_id) VALUES ('Cozy Cottage', 'A charming cottage in the countryside.', 99.99, '2023-10-15', '2023-11-15', 1);
+INSERT INTO spaces (space_name, space_description, price_per_night, available_from, available_to, user_id) VALUES ('Cozy Cottage', 'A charming cottage in the countryside.', 99.99, '2023-10-15', '2024-11-15', 1);
 INSERT INTO spaces (space_name, space_description, price_per_night, available_from, available_to, user_id) VALUES ('City Apartment', 'Modern apartment in the heart of the city.', 150, '2023-10-10', '2023-11-10', 2);
 INSERT INTO spaces (space_name, space_description, price_per_night, available_from, available_to, user_id) VALUES ('Beach House', 'Beachfront property with stunning views.', 200, '2023-10-20', '2023-11-20', 3);
 

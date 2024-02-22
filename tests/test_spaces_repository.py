@@ -15,7 +15,7 @@ def test_show_all_space_including_mine(db_connection):
     
     all_spaces = repo.all()
     
-    space_1 = Space(1, 'Cozy Cottage', 'A charming cottage in the countryside.', Decimal('99.99'), datetime.date(2023, 10, 15), datetime.date(2023, 11, 15), 1)
+    space_1 = Space(1, 'Cozy Cottage', 'A charming cottage in the countryside.', Decimal('99.99'), datetime.date(2023, 10, 15), datetime.date(2024, 11, 15), 1)
     space_2 = Space(2, 'City Apartment', 'Modern apartment in the heart of the city.', Decimal('150.00'), datetime.date(2023, 10, 10), datetime.date(2023, 11, 10), 2)
     space_3 = Space(3, 'Beach House', 'Beachfront property with stunning views.', Decimal('200.00'), datetime.date(2023, 10, 20), datetime.date(2023, 11, 20), 3)
 
@@ -35,7 +35,7 @@ def test_get_all_spaces(db_connection):
     repo = SpaceRepository(db_connection)
 
     spaces = repo.get_all_spaces(3)  
-    test_space_1 = Space(1, 'Cozy Cottage', 'A charming cottage in the countryside.', Decimal('99.99'), datetime.date(2023, 10, 15), datetime.date(2023, 11, 15), 1)
+    test_space_1 = Space(1, 'Cozy Cottage', 'A charming cottage in the countryside.', Decimal('99.99'), datetime.date(2023, 10, 15), datetime.date(2024, 11, 15), 1)
     test_space_2 = Space(2, 'City Apartment', 'Modern apartment in the heart of the city.', Decimal('150.00'), datetime.date(2023, 10, 10), datetime.date(2023, 11, 10), 2)
     result = [
         test_space_1, test_space_2
@@ -91,7 +91,7 @@ def test_create_new_space(db_connection):
     repo.create(new_space)
     all_spaces = repo.all() 
 
-    space_1 = Space(1, 'Cozy Cottage', 'A charming cottage in the countryside.', Decimal('99.99'), datetime.date(2023, 10, 15), datetime.date(2023, 11, 15), 1)
+    space_1 = Space(1, 'Cozy Cottage', 'A charming cottage in the countryside.', Decimal('99.99'), datetime.date(2023, 10, 15), datetime.date(2024, 11, 15), 1)
     space_2 = Space(2, 'City Apartment', 'Modern apartment in the heart of the city.', Decimal('150.00'), datetime.date(2023, 10, 10), datetime.date(2023, 11, 10), 2)
     space_3 = Space(3, 'Beach House', 'Beachfront property with stunning views.', Decimal('200.00'), datetime.date(2023, 10, 20), datetime.date(2023, 11, 20), 3)
     space_4 = Space(4, 'Nice Cabin', 'A nice cabin in the woods.', Decimal('1500.00'), datetime.date(2023, 12, 1), datetime.date(2023, 12, 20), 1)
@@ -135,4 +135,6 @@ def test_get_single_space_by_id(db_connection):
 
     assert spaces == result 
 
-        
+  
+
+       

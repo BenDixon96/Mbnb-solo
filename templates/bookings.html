@@ -45,11 +45,16 @@
     
     <div class="space-listing">
         <div class="space-item">
-            <h3>{{booking.booking_date}}</h3>
-            <p>{{booking.booking_status}}</p>
-            {% for space in spaces %}
-            <p>{{space.space_name}}</p>
+            {% for i in booking.space%}
+            
+           <p> your booking for {{i.space_name}} on the</p>
+            
+            
             {% endfor %}
+            <h3>{{booking.booking_date}}</h3>
+            
+            <p>{{booking.booking_status}}</p>
+            
         </div>
         <br>
     

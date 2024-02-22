@@ -53,8 +53,15 @@ def get_my_spaces():
         return redirect("/login")
     else:
         space_repo = SpaceRepository(connection)
-        my_spaces = space_repo.get_all_spaces_by_id(session['user_id'])
-        return render_template('my-spaces.html', my_spaces=my_spaces)
+        booking_repo = BookingRepository(connection)
+
+
+        bookings = booking_repo.get_all_by_user_id(session['user_id'])
+        spaces = space_repo.get_all_spaces_by_id(session['user_id'])
+        my_spaces = [x.get_bookings(bookings) for x in spaces]
+
+
+        return render_template('my-spaces.html', my_spaces=spaces)
 
 @app.route('/spaces/<int:id>', methods=['GET'])
 def show_space_detail(id):
@@ -88,17 +95,31 @@ def get_available_date():
 def get_requests():
     connection = get_flask_database_connection(app)
     booking_repo = BookingRepository(connection)
-    bookings = booking_repo.get_all_by_user_id(session["user_id"])
-    space_ids = [x.space_id for x in bookings]
-    spaces = [booking_repo.get_space_by_booking_id(space_id) for space_id in space_ids]
+    space_repo = SpaceRepository(connection)
+    get_all_spaces = space_repo.all() 
 
-
-    return render_template('bookings.html', bookings=bookings, spaces=spaces)
-
-
+    bookings0 = booking_repo.get_all_by_user_id(session['user_id'])
+    bookings = [x.show_space(get_all_spaces) for x in bookings0]
+    
 
 
 
+    return render_template('bookings.html', bookings=bookings0)
+
+
+
+
+@app.route('/change-status/<int:id>', methods=['GET'])
+def get_change_status_page(id):
+    connection = get_flask_database_connection(app)
+    booking_repo = BookingRepository(connection)
+
+    booking = booking_repo.get_by_booking_id(id)
+
+    return render_template('change-status.html', booking=booking)
+    
+
+    
 
     
 

@@ -5,9 +5,14 @@ class Booking:
         self.booking_status = booking_status
         self.user_id = user_id
         self.space_id = space_id
+        self.space = []
 
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
     def __repr__(self):
         return f"Booking({self.id}, {self.booking_date}, {self.booking_status}, {self.user_id}, {self.space_id})"
+    def show_space(self, spaces):
+        for space in spaces:
+            if space.id == self.space_id:
+                self.space.append(space)    

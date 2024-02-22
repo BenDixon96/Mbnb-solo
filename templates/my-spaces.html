@@ -48,6 +48,12 @@
             <p>{{space.available_from}}</p>
             <p>{{space.available_to}}</p>
             <p>£{{space.price_per_night}}</p>
+            {% for i in space.current_bookings%}
+            <div class="space-booking">
+           
+            <a href="/change-status/{{i.id}}"> booking {{i.booking_status}} for dates {{i.booking_date}} click to change status</a>
+            </div>
+            {% endfor %}
             
         </div>
         <br>

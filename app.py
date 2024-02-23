@@ -121,7 +121,16 @@ def get_change_status_page(id):
 
     return render_template('change-status.html', booking=booking, space=space)
     
+@app.route('/change-status/<int:id>', methods=['POST'])
+def post_change_status_page(id):
+    connection = get_flask_database_connection(app)
+    booking_repo = BookingRepository(connection)
+    booking_status = bool(request.form['status'])
+    booking_repo.update_status(id, booking_status)
 
+
+
+    return redirect('/my-spaces')
     
 
     

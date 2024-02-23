@@ -11,7 +11,16 @@
     
     <h1>{{booking.booking_date}} {{booking.booking_status}} {{space.space_name}}</h1>
 
- 
+    <label for="status">Choose a new status:</label>
+    <form action='/change-status/{{booking.id}}' method="POST">
+        <select name="status" id="status">
+            <option value="True">Confirmed</option>
+            <option value="">Canceled</option>
+        </select>
+        <input type="submit" value="Change Status">
+    </form>
+<br>
+</div>
 
    
 

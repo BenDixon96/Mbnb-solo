@@ -19,5 +19,5 @@ class Space:
     
     def get_bookings(self, bookings):
         for i in bookings:
-            if i.id == self.id:
-                self.current_bookings.append(i)    
+            if i.space_id == self.id:
+                self.current_bookings.append(i)

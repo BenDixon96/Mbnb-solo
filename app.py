@@ -114,7 +114,7 @@ def get_change_status_page(id):
     connection = get_flask_database_connection(app)
     booking_repo = BookingRepository(connection)
 
-    booking = booking_repo.get_by_booking_id(id)
+    booking = booking_repo.get_by_booking_id
 
     return render_template('change-status.html', booking=booking)
     

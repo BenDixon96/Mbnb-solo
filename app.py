@@ -113,10 +113,13 @@ def get_requests():
 def get_change_status_page(id):
     connection = get_flask_database_connection(app)
     booking_repo = BookingRepository(connection)
+    space_repo = SpaceRepository(connection)
 
-    booking = booking_repo.get_by_booking_id
+    booking = booking_repo.get_by_booking_id(id)
+    space = space_repo.get_single_space_by_id(booking.space_id)[0]
+    
 
-    return render_template('change-status.html', booking=booking)
+    return render_template('change-status.html', booking=booking, space=space)
     
 
     
